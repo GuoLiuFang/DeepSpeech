@@ -39,17 +39,17 @@ MD5_TRAIN_OTHER_500 = "d1a0fd59409feb2c614ce4d30c387708"
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument(
     "--target_dir",
-    default='~/.cache/paddle/dataset/speech/libri',
+    default='/DataHub/Audio/librispeech_data',
     type=str,
     help="Directory to save the dataset. (default: %(default)s)")
 parser.add_argument(
     "--manifest_prefix",
-    default="manifest",
+    default="data/tiny/manifest",
     type=str,
     help="Filepath prefix for output manifests. (default: %(default)s)")
 parser.add_argument(
     "--full_download",
-    default="True",
+    default="False",
     type=distutils.util.strtobool,
     help="Download all datasets for Librispeech."
     " If False, only download a minimal requirement (test-clean, dev-clean"
@@ -90,16 +90,16 @@ def create_manifest(data_dir, manifest_path):
 def prepare_dataset(url, md5sum, target_dir, manifest_path):
     """Download, unpack and create summmary manifest file.
     """
-    if not os.path.exists(os.path.join(target_dir, "LibriSpeech")):
+    if not os.path.exists(os.path.join(target_dir[0], target_dir[1], "LibriSpeech")):
         # download
         filepath = download(url, md5sum, target_dir)
         # unpack
-        unpack(filepath, target_dir)
+        unpack(filepath, os.path.join(target_dir[0], target_dir[1]))
     else:
         print("Skip downloading and unpacking. Data already exists in %s." %
-              target_dir)
+              os.path.join(target_dir[0], target_dir[1]))
     # create manifest json file
-    create_manifest(target_dir, manifest_path)
+    create_manifest(os.path.join(target_dir[0], target_dir[1]), manifest_path)
 
 
 def main():
@@ -109,38 +109,38 @@ def main():
     prepare_dataset(
         url=URL_TEST_CLEAN,
         md5sum=MD5_TEST_CLEAN,
-        target_dir=os.path.join(args.target_dir, "test-clean"),
+        target_dir=(args.target_dir, "test-clean"),
         manifest_path=args.manifest_prefix + ".test-clean")
     prepare_dataset(
         url=URL_DEV_CLEAN,
         md5sum=MD5_DEV_CLEAN,
-        target_dir=os.path.join(args.target_dir, "dev-clean"),
+        target_dir=(args.target_dir, "dev-clean"),
         manifest_path=args.manifest_prefix + ".dev-clean")
     if args.full_download:
         prepare_dataset(
             url=URL_TRAIN_CLEAN_100,
             md5sum=MD5_TRAIN_CLEAN_100,
-            target_dir=os.path.join(args.target_dir, "train-clean-100"),
+            target_dir=(args.target_dir, "train-clean-100"),
             manifest_path=args.manifest_prefix + ".train-clean-100")
         prepare_dataset(
             url=URL_TEST_OTHER,
             md5sum=MD5_TEST_OTHER,
-            target_dir=os.path.join(args.target_dir, "test-other"),
+            target_dir=(args.target_dir, "test-other"),
             manifest_path=args.manifest_prefix + ".test-other")
         prepare_dataset(
             url=URL_DEV_OTHER,
             md5sum=MD5_DEV_OTHER,
-            target_dir=os.path.join(args.target_dir, "dev-other"),
+            target_dir=(args.target_dir, "dev-other"),
             manifest_path=args.manifest_prefix + ".dev-other")
         prepare_dataset(
             url=URL_TRAIN_CLEAN_360,
             md5sum=MD5_TRAIN_CLEAN_360,
-            target_dir=os.path.join(args.target_dir, "train-clean-360"),
+            target_dir=(args.target_dir, "train-clean-360"),
             manifest_path=args.manifest_prefix + ".train-clean-360")
         prepare_dataset(
             url=URL_TRAIN_OTHER_500,
             md5sum=MD5_TRAIN_OTHER_500,
-            target_dir=os.path.join(args.target_dir, "train-other-500"),
+            target_dir=(args.target_dir, "train-other-500"),
             manifest_path=args.manifest_prefix + ".train-other-500")
 
 

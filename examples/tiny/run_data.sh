@@ -10,7 +10,7 @@ fi
 # download data, generate manifests
 PYTHONPATH=.:$PYTHONPATH python data/librispeech/librispeech.py \
 --manifest_prefix='data/tiny/manifest' \
---target_dir='./dataset/librispeech' \
+--target_dir='/DataHub/Audio/librispeech_data' \
 --full_download='False'
 
 if [ $? -ne 0 ]; then

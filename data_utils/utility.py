@@ -63,8 +63,8 @@ def download_multi(url, target_dir, extra_args):
 
 def download(url, md5sum, target_dir):
     """Download file from url to target_dir, and check md5sum."""
-    if not os.path.exists(target_dir): os.makedirs(target_dir)
-    filepath = os.path.join(target_dir, url.split("/")[-1])
+    if not os.path.exists(os.path.join(target_dir[0], target_dir[1])): os.makedirs(os.path.join(target_dir[0], target_dir[1]))
+    filepath = os.path.join(target_dir[0], url.split("/")[-1])
     if not (os.path.exists(filepath) and md5file(filepath) == md5sum):
         print("Downloading %s ..." % url)
         os.system("wget -c " + url + " -P " + target_dir)
@@ -82,8 +82,8 @@ def unpack(filepath, target_dir, rm_tar=False):
     tar = tarfile.open(filepath)
     tar.extractall(target_dir)
     tar.close()
-    if rm_tar == True:
-        os.remove(filepath)
+    # if rm_tar == True:
+    #     os.remove(filepath)
 
 
 class XmapEndSignal():
