@@ -239,7 +239,7 @@ Be careful when utilizing the data augmentation technique, as improper augmentat
 A language model is required to improve the decoder's performance. We have prepared two language models (with lossy compression) for users to download and try. One is for English and the other is for Mandarin. Users can simply run this to download the preprared language models:
 
 ```bash
-cd models/lm
+cd /DataHub/Audio/models/lm
 bash download_lm_en.sh
 bash download_lm_ch.sh
 ```

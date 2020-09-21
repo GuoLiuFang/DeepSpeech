@@ -26,8 +26,8 @@ python -u tools/tune.py \
 --tune_manifest='data/tiny/manifest.dev-clean' \
 --mean_std_path='data/tiny/mean_std.npz' \
 --vocab_path='data/tiny/vocab.txt' \
---model_path='models/librispeech' \
---lang_model_path='models/lm/common_crawl_00.prune01111.trie.klm' \
+--model_path='/DataHub/Audio/models/librispeech' \
+--lang_model_path='/DataHub/Audio/models/lm/common_crawl_00.prune01111.trie.klm' \
 --error_rate_type='wer' \
 --specgram_type='linear'
 

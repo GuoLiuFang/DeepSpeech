@@ -237,7 +237,7 @@ python train.py --help
 提升解码器的性能需要准备语言模型。我们准备了两种语言模型（有损压缩）供用户下载和尝试。一个是英语模型，另一个是普通话模型。用户可以执行以下命令来下载已经训练好的语言模型：
 
 ```bash
-cd models/lm
+cd /DataHub/Audio/models/lm
 bash download_lm_en.sh
 bash download_lm_ch.sh
 ```

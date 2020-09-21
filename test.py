@@ -43,7 +43,7 @@ add_arg('model_path',       str,
         "If None, the training starts from scratch, "
         "otherwise, it resumes from the pre-trained model.")
 add_arg('lang_model_path',  str,
-        'models/lm/common_crawl_00.prune01111.trie.klm',
+        '/DataHub/Audio/models/lm/common_crawl_00.prune01111.trie.klm',
         "Filepath for language model.")
 add_arg('decoding_method',  str,
         'ctc_beam_search',

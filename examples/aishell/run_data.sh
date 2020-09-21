@@ -5,7 +5,7 @@ cd ../.. > /dev/null
 # download data, generate manifests
 PYTHONPATH=.:$PYTHONPATH python data/aishell/aishell.py \
 --manifest_prefix='data/aishell/manifest' \
---target_dir='./dataset/aishell'
+--target_dir='/DataHub/Audio/aishell_data'
 
 if [ $? -ne 0 ]; then
     echo "Prepare Aishell failed. Terminated."

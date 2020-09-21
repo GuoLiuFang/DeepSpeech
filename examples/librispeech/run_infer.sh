@@ -3,7 +3,7 @@
 cd ../.. > /dev/null
 
 # download language model
-cd models/lm > /dev/null
+cd /DataHub/Audio/models/lm > /dev/null
 bash download_lm_en.sh
 if [ $? -ne 0 ]; then
     exit 1
@@ -31,7 +31,7 @@ python -u infer.py \
 --mean_std_path='data/librispeech/mean_std.npz' \
 --vocab_path='data/librispeech/vocab.txt' \
 --model_path='checkpoints/libri/step_final' \
---lang_model_path='models/lm/common_crawl_00.prune01111.trie.klm' \
+--lang_model_path='/DataHub/Audio/models/lm/common_crawl_00.prune01111.trie.klm' \
 --decoding_method='ctc_beam_search' \
 --error_rate_type='wer' \
 --specgram_type='linear'

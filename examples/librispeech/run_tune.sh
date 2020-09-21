@@ -25,9 +25,9 @@ python -u tools/tune.py \
 --share_rnn_weights=True \
 --tune_manifest='data/librispeech/manifest.dev-clean' \
 --mean_std_path='data/librispeech/mean_std.npz' \
---vocab_path='models/librispeech/vocab.txt' \
---model_path='models/librispeech' \
---lang_model_path='models/lm/common_crawl_00.prune01111.trie.klm' \
+--vocab_path='/DataHub/Audio/models/librispeech/vocab.txt' \
+--model_path='/DataHub/Audio/models/librispeech' \
+--lang_model_path='/DataHub/Audio/models/lm/common_crawl_00.prune01111.trie.klm' \
 --error_rate_type='wer' \
 --specgram_type='linear'
 

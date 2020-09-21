@@ -3,7 +3,7 @@
 cd ../.. > /dev/null
 
 # download language model
-cd models/lm > /dev/null
+cd /DataHub/Audio/models/lm > /dev/null
 bash download_lm_en.sh
 if [ $? -ne 0 ]; then
     exit 1
@@ -41,7 +41,7 @@ python -u test.py \
 --mean_std_path='models/baidu_en8k/mean_std.npz' \
 --vocab_path='models/baidu_en8k/vocab.txt' \
 --model_path='models/baidu_en8k' \
---lang_model_path='models/lm/common_crawl_00.prune01111.trie.klm' \
+--lang_model_path='/DataHub/Audio/models/lm/common_crawl_00.prune01111.trie.klm' \
 --decoding_method='ctc_beam_search' \
 --error_rate_type='wer' \
 --specgram_type='linear'

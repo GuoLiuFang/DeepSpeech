@@ -43,7 +43,7 @@ add_arg('vocab_path',       str,
         'data/librispeech/vocab.txt',
         "Filepath of vocabulary.")
 add_arg('lang_model_path',  str,
-        'models/lm/common_crawl_00.prune01111.trie.klm',
+        '/DataHub/Audio/models/lm/common_crawl_00.prune01111.trie.klm',
         "Filepath for language model.")
 add_arg('model_path',       str,
         './checkpoints/libri/step_final',

@@ -3,7 +3,7 @@
 cd ../.. > /dev/null
 
 # download language model
-cd models/lm > /dev/null
+cd /DataHub/Audio/models/lm > /dev/null
 bash download_lm_en.sh
 if [ $? -ne 0 ]; then
     exit 1
@@ -37,10 +37,10 @@ python -u test.py \
 --use_gpu=True \
 --share_rnn_weights=True \
 --test_manifest='data/tiny/manifest.test-clean' \
---mean_std_path='models/librispeech/mean_std.npz' \
---vocab_path='models/librispeech/vocab.txt' \
---model_path='models/librispeech' \
---lang_model_path='models/lm/common_crawl_00.prune01111.trie.klm' \
+--mean_std_path='/DataHub/Audio/models/librispeech/mean_std.npz' \
+--vocab_path='/DataHub/Audio/models/librispeech/vocab.txt' \
+--model_path='/DataHub/Audio/models/librispeech' \
+--lang_model_path='/DataHub/Audio/models/lm/common_crawl_00.prune01111.trie.klm' \
 --decoding_method='ctc_beam_search' \
 --error_rate_type='wer' \
 --specgram_type='linear'
