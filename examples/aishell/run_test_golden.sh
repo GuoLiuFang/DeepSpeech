@@ -37,9 +37,9 @@ python -u test.py \
 --use_gpu=True \
 --share_rnn_weights=False \
 --test_manifest='data/aishell/manifest.test' \
---mean_std_path='models/aishell/mean_std.npz' \
---vocab_path='models/aishell/vocab.txt' \
---model_path='models/aishell' \
+--mean_std_path='/DataHub/Audio/models/aishell/mean_std.npz' \
+--vocab_path='/DataHub/Audio/models/aishell/vocab.txt' \
+--model_path='/DataHub/Audio/models/aishell' \
 --lang_model_path='/DataHub/Audio/models/lm/zh_giga.no_cna_cmn.prune01244.klm' \
 --decoding_method='ctc_beam_search' \
 --error_rate_type='cer' \

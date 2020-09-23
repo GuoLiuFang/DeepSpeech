@@ -39,20 +39,20 @@ add_arg('speech_save_dir',  str,
         'demo_cache',
         "Directory to save demo audios.")
 add_arg('warmup_manifest',  str,
-        'data/librispeech/manifest.test-clean',
+        'data/tiny/manifest.test-clean',
         "Filepath of manifest to warm up.")
 add_arg('mean_std_path',    str,
-        'data/librispeech/mean_std.npz',
+        'data/tiny/mean_std.npz',
         "Filepath of normalizer's mean & std.")
 add_arg('vocab_path',       str,
-        'data/librispeech/eng_vocab.txt',
+        'data/tiny/vocab.txt',
         "Filepath of vocabulary.")
 add_arg('model_path',       str,
-        './checkpoints/libri/step_final',
+        './checkpoints/tiny/step_final',
         "If None, the training starts from scratch, "
         "otherwise, it resumes from the pre-trained model.")
 add_arg('lang_model_path',  str,
-        'lm/data/common_crawl_00.prune01111.trie.klm',
+        '/DataHub/Audio/models/lm/common_crawl_00.prune01111.trie.klm',
         "Filepath for language model.")
 add_arg('decoding_method',  str,
         'ctc_beam_search',
