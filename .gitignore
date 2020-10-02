@@ -2,3 +2,5 @@
 *.pyc
 dataset/
 checkpoints/
+demo_cache/
+log.log
